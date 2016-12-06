@@ -1,0 +1,22 @@
+{
+  "name": "allex_leveldbconfigsetlib",
+  "version": "1.0.0",
+  "description": "AllexJS extension of allex_leveldbconfiglib that allows for multiple users of the same configuration structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.hers.rs:allex_libs/leveldbconfigset.git"
+  },
+  "keywords": [
+    "ecosystem:AllexJS",
+    "leveldb",
+    "config",
+    "set",
+    "lib"
+  ],
+  "author": "HERS Belgrade",
+  "license": "ISC"
+}
