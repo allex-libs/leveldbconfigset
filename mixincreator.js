@@ -1,4 +1,4 @@
-function createLevelDBConfigSetMixin (execlib, LevelDBWithLog) {
+function createLevelDBConfigSetMixin (execlib, LevelDBWithLog, Hook) {
   'use strict';
 
   var lib = execlib.lib,
@@ -63,6 +63,10 @@ function createLevelDBConfigSetMixin (execlib, LevelDBWithLog) {
     );
   };
 
+  LevelDBConfigSetMixin.prototype.hookToKVStorage = function (cb) {
+    return new Hook({leveldb: this.kvstorage, cb: cb});
+  };
+
   LevelDBConfigSetMixin.addMethods = function (klass) {
     lib.inheritMethods(klass, LevelDBConfigSetMixin,
       '_putDefault',
@@ -71,7 +75,8 @@ function createLevelDBConfigSetMixin (execlib, LevelDBWithLog) {
       'safeGet',
       'getWDefault',
       '_configPutter',
-      'getConfig'
+      'getConfig',
+      'hookToKVStorage'
     );
   };
 
